@@ -15,8 +15,6 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 - [Credits](C)
 
 User Experience 
--:white_check_mark:User Stories:white_check_mark:
--:white_check_mark:User Stories:white_check_mark:
 
 - :white_check_mark: User Stories :white_check_mark:
 
@@ -27,6 +25,7 @@ User Experience
 
 # :newspaper: Entity Relationship Diagram :newspaper:
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
+
 
 
 
