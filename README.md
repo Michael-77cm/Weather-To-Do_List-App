@@ -13,11 +13,7 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 - [Testing](T)
 - [Deployment](D)
 - [Credits](C)
-- 1. Credit
-  2. MarkUp 
 
-1. Credit
-2. Markup 
 
 # :chart_with_upwards_trend: Wireframe Diagram :chart_with_upwards_trend:
 <img width="3342" height="1443" alt="image" src="https://github.com/user-attachments/assets/455b4789-5199-4266-b4ad-97447e9a4fbe" />
@@ -25,6 +21,7 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 
 # :newspaper: Entity Relationship Diagram :newspaper:
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
+
 
 
 
