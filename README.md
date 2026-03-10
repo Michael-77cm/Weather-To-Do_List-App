@@ -6,10 +6,10 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 
 ##
 ## :scroll:Table of Contents:scroll:  
-- [User Experience] (UX)
+- [User Experience (UX)](UX)
 - [Features](Features)
 - [Design](Design)
-- [Technologies Used](Technologies Used)
+- [Technologies Used](T)
 - [Testing](T)
 - [Deployment](D)
 - [Credits](C)
@@ -22,6 +22,7 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 
 # :newspaper: Entity Relationship Diagram :newspaper:
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
+
 
 
 
