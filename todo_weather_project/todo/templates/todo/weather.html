@@ -1,0 +1,188 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block title %}Weather{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card animate__animated animate__fadeIn">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-cloud-sun"></i> Weather Information</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Search Form -->
+                    <form method="get" class="mb-4" id="weather-form">
+                        <div class="input-group input-group-lg">
+                            <input type="text" 
+                                   name="city" 
+                                   class="form-control" 
+                                   placeholder="Enter city name..." 
+                                   value="{{ city }}"
+                                   id="city-input"
+                                   autocomplete="off">
+                            <button type="submit" class="btn btn-primary" id="search-btn">
+                                <i class="fas fa-search"></i> Get Weather
+                            </button>
+                            <button type="button" class="btn btn-success" id="location-btn">
+                                <i class="fas fa-location-dot"></i> Use My Location
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Loading Spinner -->
+                    <div id="loading-spinner" class="text-center d-none">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Fetching weather data...</p>
+                    </div>
+
+                    <!-- Weather Display -->
+                    {% if weather_data %}
+                    <div class="weather-display animate__animated animate__fadeIn">
+                        <!-- Current Weather -->
+                        <div class="current-weather text-center mb-4">
+                            <h2 class="mb-2">{{ weather_data.city }}, {{ weather_data.country }}</h2>
+                            <p class="text-muted">{{ weather_data.description|title }}</p>
+                            
+                            <div class="weather-icon">
+                                <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}@4x.png" 
+                                     alt="{{ weather_data.description }}"
+                                     class="img-fluid">
+                            </div>
+                            
+                            <div class="temperature-display">
+                                <span class="display-1">{{ weather_data.temperature }}°</span>
+                                <span class="display-6">C</span>
+                            </div>
+                            
+                            <p class="lead">Feels like {{ weather_data.feels_like }}°C</p>
+                        </div>
+
+                        <!-- Weather Details Grid -->
+                        <div class="weather-details row g-3 mb-4">
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-temperature-high text-primary"></i>
+                                    <h6>Min / Max</h6>
+                                    <p class="mb-0">{{ weather_data.temp_min }}° / {{ weather_data.temp_max }}°</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-tint text-info"></i>
+                                    <h6>Humidity</h6>
+                                    <p class="mb-0">{{ weather_data.humidity }}%</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-wind text-secondary"></i>
+                                    <h6>Wind Speed</h6>
+                                    <p class="mb-0">{{ weather_data.wind_speed }} m/s</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-compress-alt text-success"></i>
+                                    <h6>Pressure</h6>
+                                    <p class="mb-0">{{ weather_data.pressure }} hPa</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-eye text-warning"></i>
+                                    <h6>Visibility</h6>
+                                    <p class="mb-0">{{ weather_data.visibility }} km</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <div class="detail-card">
+                                    <i class="fas fa-sun text-warning"></i>
+                                    <h6>Sunrise / Sunset</h6>
+                                    <p class="mb-0">{{ weather_data.sunrise }} / {{ weather_data.sunset }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5-Day Forecast -->
+                        {% if forecast_data %}
+                        <div class="forecast-section">
+                            <h5 class="mb-3"><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h5>
+                            <div class="row">
+                                {% for forecast in forecast_data %}
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="forecast-card text-center">
+                                        <p class="mb-1 fw-bold">{{ forecast.date|slice:":3" }}</p>
+                                        <img src="http://openweathermap.org/img/wn/{{ forecast.icon }}.png" 
+                                             alt="{{ forecast.description }}">
+                                        <p class="mb-0">{{ forecast.temp }}°C</p>
+                                        <small class="text-muted">{{ forecast.description }}</small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% else %}
+                    <!-- Empty State -->
+                    <div class="text-center py-5">
+                        <i class="fas fa-cloud-sun fa-5x text-muted mb-3"></i>
+                        <h5>No Weather Data</h5>
+                        <p class="text-muted">Enter a city name or use your location to get current weather information.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // Use my location button
+        $('#location-btn').click(function() {
+            if (navigator.geolocation) {
+                $('#loading-spinner').removeClass('d-none');
+                
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    // Get city from coordinates using reverse geocoding
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    // Use OpenWeatherMap reverse geocoding
+                    fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid={{ weather_api_key }}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data && data.length > 0) {
+                                $('#city-input').val(data[0].name);
+                                $('#weather-form').submit();
+                            }
+                        })
+                        .catch(error => {
+                            $('#loading-spinner').addClass('d-none');
+                            alert('Could not detect your location. Please enter city manually.');
+                        });
+                }, function(error) {
+                    $('#loading-spinner').addClass('d-none');
+                    alert('Could not get your location. Please enter city manually.');
+                });
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        });
+
+        // Show loading spinner on form submit
+        $('#weather-form').submit(function() {
+            $('#search-btn').prop('disabled', true);
+            $('#loading-spinner').removeClass('d-none');
+        });
+    });
+</script>
+{% endblock %}
