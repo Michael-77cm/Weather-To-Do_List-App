@@ -1,0 +1,254 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="animate__animated animate__fadeInLeft">
+                    <i class="fas fa-tasks text-primary"></i> My Todo List
+                </h1>
+                <a href="{% url 'add_todo' %}" class="btn btn-primary btn-lg animate__animated animate__fadeInRight">
+                    <i class="fas fa-plus"></i> Add New Task
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card stats-card bg-primary text-white animate__animated animate__fadeInUp">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Total Tasks</h6>
+                            <h2 class="mb-0">{{ total_todos }}</h2>
+                        </div>
+                        <i class="fas fa-clipboard-list fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stats-card bg-success text-white animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Completed</h6>
+                            <h2 class="mb-0">{{ completed_count }}</h2>
+                        </div>
+                        <i class="fas fa-check-circle fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stats-card bg-warning text-white animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Pending</h6>
+                            <h2 class="mb-0">{{ pending_count }}</h2>
+                        </div>
+                        <i class="fas fa-hourglass-half fa-3x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- Active Tasks -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-clock"></i> Active Tasks ({{ active_todos|length }})</h5>
+                    <span class="badge bg-light text-dark">{{ active_todos|length }}</span>
+                </div>
+                <div class="card-body">
+                    {% if active_todos %}
+                        <div class="todo-list" id="active-todos">
+                            {% for todo in active_todos %}
+                                <div class="todo-item animate__animated animate__fadeIn" data-todo-id="{{ todo.id }}">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="todo-content">
+                                            <h6 class="todo-title mb-1">
+                                                {{ todo.title }}
+                                                {% if todo.is_overdue %}
+                                                    <span class="badge bg-danger ms-2">Overdue</span>
+                                                {% endif %}
+                                            </h6>
+                                            
+                                            {% if todo.description %}
+                                                <p class="todo-description text-muted small mb-2">
+                                                    {{ todo.description|truncatechars:100 }}
+                                                </p>
+                                            {% endif %}
+                                            
+                                            <div class="todo-meta">
+                                                <span class="badge bg-{% if todo.priority == 'high' %}danger{% elif todo.priority == 'medium' %}warning{% else %}info{% endif %} me-2">
+                                                    <i class="fas fa-flag"></i> {{ todo.get_priority_display }}
+                                                </span>
+                                                
+                                                <span class="badge bg-secondary me-2">
+                                                    <i class="fas fa-tag"></i> {{ todo.get_category_display }}
+                                                </span>
+                                                
+                                                {% if todo.due_date %}
+                                                    <span class="badge bg-{% if todo.is_overdue %}danger{% else %}light{% endif %} text-dark me-2">
+                                                        <i class="fas fa-calendar"></i> 
+                                                        {{ todo.due_date|date:"M d, Y H:i" }}
+                                                        {% if todo.days_remaining >= 0 %}
+                                                            ({{ todo.days_remaining }} days left)
+                                                        {% endif %}
+                                                    </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="todo-actions">
+                                            <button class="btn btn-sm btn-success toggle-complete" title="Mark as completed">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <a href="{% url 'edit_todo' todo.id %}" class="btn btn-sm btn-primary" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="{% url 'delete_todo' todo.id %}" class="btn btn-sm btn-danger" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-check-circle fa-4x text-muted mb-3"></i>
+                            <p class="text-muted">No active tasks. Great job!</p>
+                            <a href="{% url 'add_todo' %}" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add New Task
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-check-circle"></i> Completed Tasks ({{ completed_todos|length }})</h5>
+                    <span class="badge bg-light text-dark">{{ completed_todos|length }}</span>
+                </div>
+                <div class="card-body">
+                    {% if completed_todos %}
+                        <div class="todo-list">
+                            {% for todo in completed_todos %}
+                                <div class="todo-item completed animate__animated animate__fadeIn" data-todo-id="{{ todo.id }}">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="todo-content">
+                                            <h6 class="todo-title mb-1 text-muted">
+                                                <del>{{ todo.title }}</del>
+                                            </h6>
+                                            
+                                            {% if todo.description %}
+                                                <p class="todo-description text-muted small mb-2">
+                                                    <del>{{ todo.description|truncatechars:100 }}</del>
+                                                </p>
+                                            {% endif %}
+                                            
+                                            <div class="todo-meta">
+                                                <span class="badge bg-secondary me-2">
+                                                    <i class="fas fa-tag"></i> {{ todo.get_category_display }}
+                                                </span>
+                                                
+                                                <small class="text-muted">
+                                                    <i class="fas fa-clock"></i> 
+                                                    Completed on {{ todo.updated_date|date:"M d, Y" }}
+                                                </small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="todo-actions">
+                                            <button class="btn btn-sm btn-warning toggle-complete" title="Mark as incomplete">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                            <a href="{% url 'delete_todo' todo.id %}" class="btn btn-sm btn-danger" title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-list fa-4x text-muted mb-3"></i>
+                            <p class="text-muted">No completed tasks yet.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Chart -->
+    {% if categories %}
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Tasks by Category</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="categoryChart" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Category Chart
+    {% if categories %}
+    const ctx = document.getElementById('categoryChart').getContext('2d');
+    const categories = {{ categories|safe }};
+    
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(categories),
+            datasets: [{
+                data: Object.values(categories),
+                backgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#4BC0C0',
+                    '#9966FF'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    {% endif %}
+</script>
+{% endblock %}
