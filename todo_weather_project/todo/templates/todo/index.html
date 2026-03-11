@@ -222,14 +222,14 @@
     // Category Chart
     {% if categories %}
     const ctx = document.getElementById('categoryChart').getContext('2d');
-    const categories = {{ categories|safe }};
+    const categoryData = {{ categories|safe }};
     
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: Object.keys(categories),
+            labels: Object.keys(categoryData),
             datasets: [{
-                data: Object.values(categories),
+                data: Object.values(categoryData),
                 backgroundColor: [
                     '#FF6384',
                     '#36A2EB',

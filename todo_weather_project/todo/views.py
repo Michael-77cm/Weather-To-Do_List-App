@@ -16,7 +16,7 @@ from .forms import (UserRegistrationForm, UserLoginForm, EnhancedTodoForm,
                    UserProfileForm, UserUpdateForm, TaskShareForm, 
                    TaskCommentForm, TaskFilterForm)
 from .decorators import has_task_permission
-from .utils import send_task_shared_email, create_notification
+from .utils import create_notification
 import json
 from datetime import datetime, timedelta
 
