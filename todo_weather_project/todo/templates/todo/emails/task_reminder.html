@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: #f39c12;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .content {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+        .task-details {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f39c12;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⏰ Task Reminder</h1>
+        </div>
+        <div class="content">
+            <h2>Hello {{ user.get_full_name|default:user.username }}!</h2>
+            <p>This is a reminder that the following task is due soon:</p>
+            
+            <div class="task-details">
+                <h3>{{ task.title }}</h3>
+                {% if task.description %}
+                    <p>{{ task.description }}</p>
+                {% endif %}
+                <p><strong>Due Date:</strong> {{ task.due_date|date:"F j, Y, g:i a" }}</p>
+                <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+                <p><strong>Category:</strong> {{ task.get_category_display }}</p>
+            </div>
+            
+            <a href="{{ protocol }}://{{ domain }}{% url 'task_detail' task.id %}" class="button">View Task</a>
+        </div>
+    </div>
+</body>
+</html>
