@@ -546,61 +546,42 @@ def mark_notification_read(request, notification_id):
 def weather_view(request):
     """View for weather information"""
     weather_data = None
-    forecast_data = None
-    city = request.GET.get('city', request.user.profile.location or 'London')
-    
+    city = request.GET.get('city', '').strip()
+
     if city:
         try:
-            api_key = settings.WEATHER_API_KEY
-            
-            # Current weather
-            current_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
-            current_response = requests.get(current_url)
-            
-            if current_response.status_code == 200:
-                current_data = current_response.json()
-                weather_data = {
-                    'city': current_data['name'],
-                    'country': current_data['sys']['country'],
-                    'temperature': round(current_data['main']['temp']),
-                    'feels_like': round(current_data['main']['feels_like']),
-                    'temp_min': round(current_data['main']['temp_min']),
-                    'temp_max': round(current_data['main']['temp_max']),
-                    'description': current_data['weather'][0]['description'],
-                    'icon': current_data['weather'][0]['icon'],
-                    'humidity': current_data['main']['humidity'],
-                    'wind_speed': current_data['wind']['speed'],
-                    'pressure': current_data['main']['pressure'],
-                    'visibility': current_data.get('visibility', 0) / 1000,
-                    'sunrise': datetime.fromtimestamp(current_data['sys']['sunrise']).strftime('%H:%M'),
-                    'sunset': datetime.fromtimestamp(current_data['sys']['sunset']).strftime('%H:%M'),
-                }
-                
-                # 5-day forecast
-                forecast_url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
-                forecast_response = requests.get(forecast_url)
-                
-                if forecast_response.status_code == 200:
-                    forecast_data = []
-                    forecast_json = forecast_response.json()
-                    
-                    for item in forecast_json['list'][:5]:
-                        forecast_data.append({
-                            'date': datetime.strptime(item['dt_txt'], '%Y-%m-%d %H:%M:%S').strftime('%A'),
-                            'temp': round(item['main']['temp']),
-                            'description': item['weather'][0]['description'],
-                            'icon': item['weather'][0]['icon'],
-                        })
-            else:
-                messages.error(request, 'City not found. Please try again.')
-        except Exception as e:
-            messages.error(request, 'Error fetching weather data. Please try again.')
-    
-    return render(request, 'todo/weather.html', {
+            url = (
+                f"https://api.openweathermap.org/data/2.5/weather"
+                f"?q={city}&appid={settings.OPENWEATHER_API_KEY}&units=metric"
+            )
+            response = requests.get(url, timeout=5)
+            response.raise_for_status()
+            weather_data = response.json()
+
+            # Convert Unix timestamps to readable time
+            import datetime
+            weather_data['sys']['sunrise'] = datetime.datetime.fromtimestamp(
+                weather_data['sys']['sunrise']
+            ).strftime('%H:%M')
+            weather_data['sys']['sunset'] = datetime.datetime.fromtimestamp(
+                weather_data['sys']['sunset']
+            ).strftime('%H:%M')
+
+            # Convert visibility from metres to km
+            if 'visibility' in weather_data:
+                weather_data['visibility'] = f"{weather_data['visibility'] / 1000:.1f} km"
+
+        except requests.exceptions.HTTPError as e:
+            weather_data = None
+        except requests.exceptions.RequestException as e:
+            weather_data = None
+
+    context = {
         'weather_data': weather_data,
-        'forecast_data': forecast_data,
-        'city': city
-    })
+        'city': city,
+        'weather_api_key': settings.OPENWEATHER_API_KEY,
+    }
+    return render(request, 'todo/weather.html', context)
 
 # ==================== EMAIL FUNCTIONS ====================
 

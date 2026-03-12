@@ -25,3 +25,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": crontab(minute="*/1"),
     }
 }
+
+OPENWEATHER_API_KEY = "your_api_key_here"
