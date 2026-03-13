@@ -18,7 +18,7 @@ def weather_dashboard(request):
     if last_search:
         context['last_city'] = last_search.city
     
-    return render(request, 'weather/weather_dashboard.html', context)
+    return render(request, 'weather_dashboard.html', context)
 
 @login_required
 @require_GET
