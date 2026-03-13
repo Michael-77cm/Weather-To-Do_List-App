@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Weather Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-search"></i> Weather Search</h4>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" id="cityInput" class="form-control form-control-lg" 
+                               placeholder="Enter city name..." list="cityList" autocomplete="off">
+                        <datalist id="cityList">
+                            {% for city in cities %}
+                                <option value="{{ city }}">
+                            {% endfor %}
+                        </datalist>
+                        <button class="btn btn-primary btn-lg" type="button" id="searchWeather">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                        <button class="btn btn-success btn-lg" type="button" id="getLocation">
+                            <i class="fas fa-location-dot"></i> My Location
+                        </button>
+                    </div>
+                    
+                    <div id="loadingSpinner" class="text-center d-none">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div id="weatherResult" class="d-none">
+                        <!-- Weather data will be displayed here via JavaScript -->
+                    </div>
+                    
+                    <div id="weatherAnimation" class="weather-animation-container">
+                        <!-- Animation will be displayed here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search History -->
+            <div class="card mt-4 shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-history"></i> Recent Searches</h5>
+                </div>
+                <div class="card-body">
+                    <div id="searchHistory" class="list-group">
+                        <!-- History will be loaded here via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Pass Django URLs to JavaScript
+    const weatherApiUrl = "{% url 'weather:get_weather' %}";
+    const historyApiUrl = "{% url 'weather:search_history' %}";
+</script>
+{% endblock %}
