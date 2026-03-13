@@ -1,0 +1,37 @@
+[
+  {
+    "model": "todo.taskcategory",
+    "pk": 1,
+    "fields": {
+      "name": "work"
+    }
+  },
+  {
+    "model": "todo.taskcategory",
+    "pk": 2,
+    "fields": {
+      "name": "personal"
+    }
+  },
+  {
+    "model": "todo.taskcategory",
+    "pk": 3,
+    "fields": {
+      "name": "shopping"
+    }
+  },
+  {
+    "model": "todo.taskcategory",
+    "pk": 4,
+    "fields": {
+      "name": "business"
+    }
+  },
+  {
+    "model": "todo.taskcategory",
+    "pk": 5,
+    "fields": {
+      "name": "wishlist"
+    }
+  }
+]
