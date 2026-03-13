@@ -12,7 +12,24 @@ class WeatherManager {
         $('#cityInput').on('keypress', (e) => {
             if (e.which === 13) this.searchWeather();
         });
+        $('#cityInput').on('input', () => {
+            const city = $('#cityInput').val().trim();
+            if (city && this.isKnownCity(city)) {
+                this.searchWeather();
+            }
+        });
         $('#getLocation').on('click', () => this.getLocationWeather());
+    }
+
+    isKnownCity(city) {
+        let isMatch = false;
+        $('#cityList option').each(function() {
+            if ($(this).val().toLowerCase() === city.toLowerCase()) {
+                isMatch = true;
+                return false;
+            }
+        });
+        return isMatch;
     }
 
     searchWeather() {
