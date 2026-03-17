@@ -1,5 +1,5 @@
-﻿# Weather-To-Do_List-App
-# :sparkles: Welcome to Weather To-Do List App :sparkles:
+﻿# Weather-To-Do_List
+# :sparkles: Welcome to Weather To-Do List :sparkles:
 View the live project here: 
 
 Stay organised with a to‑do list that adapts to the weather. This app combines your tasks with real‑time forecasts so you can plan smarter, avoid surprises, and make the most of every day. Whether it’s sunshine, rain, or anything in between, your schedule adjusts automatically to keep you on track.
@@ -27,7 +27,42 @@ User Experience
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
 
 
+# WeatherToDoList
 
+WeatherToDoList is a Django web app that combines:
+
+- user authentication
+- a live weather search experience for cities worldwide
+- a calendar-backed task manager for any day of the year
+- task categories, status tracking, CRUD operations, sharing, and email reminders
+
+## Stack
+
+- Django
+- HTML, CSS, JavaScript
+- SQLite
+- Open-Meteo geocoding and forecast APIs
+
+## Features
+
+- :white_check_mark:Sign up, log in, and log out with Django authentication
+- :white_check_mark:Save user emails in the database through Django's user model
+- :white_check_mark:Create, read, update, delete, and share tasks
+- :white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
+- :white_check_mark:Mark tasks as `in progress` or `done`
+- :white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
+- :white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
+- :white_check_mark:Upload and remove file attachments per task
+- :white_check_mark:Search for cities globally with autocomplete
+- :white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
+- :white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
+
+## Install and run
+
+Create and activate a virtual environment if needed, then install dependencies:
+
+```bash
+pip install -r requirements.txt
 
 
 

@@ -1,0 +1,382 @@
+{% extends 'planner/base.html' %}
+
+{% block title %}Dashboard | WeatherToDoList{% endblock %}
+
+{% block content %}
+<section class="dashboard-grid">
+    <article class="weather-panel glass-card" data-weather-panel data-condition="clear">
+        <div class="panel-heading">
+            <div>
+                <p class="eyebrow">Global weather</p>
+                <h1>Search any city worldwide</h1>
+            </div>
+            <p class="subtle-copy">Autocomplete uses Open-Meteo geocoding, so you can search cities across the world without maintaining a local city database dump.</p>
+        </div>
+
+        <div class="weather-controls">
+            <label>
+                <span>City</span>
+                <input type="search" placeholder="Search for Tokyo, Lagos, Lima..." data-city-search autocomplete="off">
+            </label>
+            <div class="suggestions" data-city-results></div>
+        </div>
+
+        <div class="weather-stage">
+            <div class="weather-scene" data-weather-scene></div>
+            <div class="weather-summary">
+                <div>
+                    <p class="eyebrow">Current conditions</p>
+                    <h2 data-weather-location>Select a city</h2>
+                    <p class="weather-description" data-weather-description>Search above or allow location access for your local forecast.</p>
+                </div>
+                <div class="weather-reading">
+                    <span class="temperature" data-weather-temp>--</span>
+                    <span class="unit">°C</span>
+                </div>
+                <dl class="metric-grid">
+                    <div>
+                        <dt>Feels like</dt>
+                        <dd data-weather-feels>--</dd>
+                    </div>
+                    <div>
+                        <dt>Humidity</dt>
+                        <dd data-weather-humidity>--</dd>
+                    </div>
+                    <div>
+                        <dt>Wind</dt>
+                        <dd data-weather-wind>--</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="forecast-strip" data-weather-forecast></div>
+    </article>
+
+    <article class="glass-card create-card">
+        <div class="panel-heading compact">
+            <div>
+                <p class="eyebrow">Create task</p>
+                <h2>Schedule any day of the year</h2>
+            </div>
+        </div>
+        <form method="post" action="{% url 'planner:create_task' %}" class="stack-form task-form">
+            {% csrf_token %}
+            <label>
+                <span>Title</span>
+                {{ task_form.title }}
+            </label>
+            <label>
+                <span>Description</span>
+                {{ task_form.description }}
+            </label>
+            <div class="form-row two-col">
+                <label>
+                    <span>Category</span>
+                    {{ task_form.category }}
+                </label>
+                <label>
+                    <span>Status</span>
+                    {{ task_form.status }}
+                </label>
+            </div>
+            <div class="form-row two-col">
+                <label>
+                    <span>Date</span>
+                    {{ task_form.scheduled_for }}
+                </label>
+                <label>
+                    <span>Time</span>
+                    {{ task_form.due_time }}
+                </label>
+            </div>
+            <div class="form-row two-col">
+                <label>
+                    <span>Repeat</span>
+                    {{ task_form.recurrence }}
+                </label>
+                <label>
+                    <span>Repeat Until</span>
+                    {{ task_form.recurrence_ends_on }}
+                </label>
+            </div>
+            <label class="checkbox-row">
+                <input type="checkbox" name="create_series" checked>
+                <span>Create upcoming repeated tasks automatically</span>
+            </label>
+            <label class="checkbox-row">
+                {{ task_form.reminder_enabled }}
+                <span>Send email reminders for this task</span>
+            </label>
+            <button type="submit" class="primary-button">Create task</button>
+        </form>
+    </article>
+
+    <article class="glass-card invite-card">
+        <div class="panel-heading compact">
+            <div>
+                <p class="eyebrow">Invites</p>
+                <h2>Task sharing inbox</h2>
+            </div>
+        </div>
+
+        <div class="invite-columns">
+            <div>
+                <h3>Received</h3>
+                <div class="invite-list">
+                    {% for invite in received_invites %}
+                        <article class="invite-item">
+                            <p><strong>{{ invite.task.title }}</strong> from {{ invite.sender.username }}</p>
+                            <p class="muted-meta">{{ invite.recipient_email }} · {% if invite.can_edit %}Edit access{% else %}View only{% endif %}</p>
+                            <div class="task-actions">
+                                <form method="post" action="{% url 'planner:accept_invite' invite.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="primary-button small">Accept</button>
+                                </form>
+                                <form method="post" action="{% url 'planner:decline_invite' invite.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="ghost-button small">Decline</button>
+                                </form>
+                                <a class="ghost-button small" href="{% url 'planner:invite_detail' invite.invite_token %}">View</a>
+                            </div>
+                        </article>
+                    {% empty %}
+                        <p class="empty-state">No pending invites received.</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div>
+                <h3>Sent pending</h3>
+                <div class="invite-list">
+                    {% for invite in sent_pending_invites %}
+                        <article class="invite-item">
+                            <p><strong>{{ invite.task.title }}</strong> to {{ invite.recipient_email }}</p>
+                            <p class="muted-meta">{% if invite.can_edit %}Edit access{% else %}View only{% endif %}</p>
+                            <form method="post" action="{% url 'planner:revoke_invite' invite.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="danger-button small">Revoke</button>
+                            </form>
+                        </article>
+                    {% empty %}
+                        <p class="empty-state">No pending invites sent.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="glass-card sidebar-card">
+        <div class="panel-heading compact">
+            <div>
+                <p class="eyebrow">Selected day</p>
+                <h2>{{ selected_date|date:'F j, Y' }}</h2>
+            </div>
+        </div>
+        <div class="task-column">
+            {% for task in selected_tasks %}
+                <section class="task-card {% if task.is_done %}done{% endif %}">
+                    <div class="task-topline">
+                        <span class="category-pill {{ task.category }}">{{ task.get_category_display }}</span>
+                        <span class="status-pill {{ task.status }}">{{ task.get_status_display }}</span>
+                    </div>
+                    <h3>{{ task.title }}</h3>
+                    <p>{{ task.description|default:'No details added yet.' }}</p>
+                    <p class="muted-meta">{% if task.due_time %}{{ task.due_time|time:'H:i' }}{% else %}No time set{% endif %} · Owner: {{ task.owner.username }}</p>
+                    {% if task.is_recurring %}
+                        <p class="muted-meta">Repeats {{ task.get_recurrence_display }}{% if task.recurrence_ends_on %} until {{ task.recurrence_ends_on|date:'M j, Y' }}{% endif %}</p>
+                    {% endif %}
+
+                    <div class="task-actions">
+                        {% if task.user_can_edit %}
+                            <form method="post" action="{% url 'planner:toggle_task_status' task.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="ghost-button">{% if task.is_done %}Mark in progress{% else %}Mark done{% endif %}</button>
+                            </form>
+                        {% endif %}
+                    </div>
+
+                    {% if task.user_can_edit %}
+                        <details class="task-details">
+                            <summary>Edit task</summary>
+                            <form method="post" action="{% url 'planner:update_task' task.id %}" class="stack-form inline-task-form">
+                                {% csrf_token %}
+                                <label><span>Title</span><input type="text" name="title" value="{{ task.title }}" maxlength="140" required></label>
+                                <label><span>Description</span><textarea name="description" rows="3">{{ task.description }}</textarea></label>
+                                <div class="form-row two-col">
+                                    <label>
+                                        <span>Category</span>
+                                        <select name="category">
+                                            {% for value, label in categories %}
+                                                <option value="{{ value }}" {% if task.category == value %}selected{% endif %}>{{ label }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Status</span>
+                                        <select name="status">
+                                            <option value="in_progress" {% if task.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                                            <option value="done" {% if task.status == 'done' %}selected{% endif %}>Done</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-row two-col">
+                                    <label><span>Date</span><input type="date" name="scheduled_for" value="{{ task.scheduled_for|date:'Y-m-d' }}" required></label>
+                                    <label><span>Time</span><input type="time" name="due_time" value="{% if task.due_time %}{{ task.due_time|time:'H:i' }}{% endif %}"></label>
+                                </div>
+                                <div class="form-row two-col">
+                                    <label>
+                                        <span>Repeat</span>
+                                        <select name="recurrence">
+                                            {% for value, label in recurrences %}
+                                                <option value="{{ value }}" {% if task.recurrence == value %}selected{% endif %}>{{ label }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </label>
+                                    <label><span>Repeat Until</span><input type="date" name="recurrence_ends_on" value="{% if task.recurrence_ends_on %}{{ task.recurrence_ends_on|date:'Y-m-d' }}{% endif %}"></label>
+                                </div>
+                                <label>
+                                    <span>Apply changes to</span>
+                                    <select name="apply_scope">
+                                        <option value="single">Only this task</option>
+                                        {% if task.recurrence_series %}
+                                            <option value="series">Entire series</option>
+                                        {% endif %}
+                                    </select>
+                                </label>
+                                <label class="checkbox-row">
+                                    <input type="checkbox" name="create_series" {% if task.is_recurring %}checked{% endif %}>
+                                    <span>Sync repeated tasks</span>
+                                </label>
+                                <label class="checkbox-row">
+                                    <input type="checkbox" name="reminder_enabled" {% if task.reminder_enabled %}checked{% endif %}>
+                                    <span>Email reminder enabled</span>
+                                </label>
+                                <button type="submit" class="primary-button small">Save changes</button>
+                            </form>
+                        </details>
+                    {% endif %}
+
+                    {% if task.user_can_edit %}
+                        <details class="task-details">
+                            <summary>Attachments</summary>
+                            <form method="post" action="{% url 'planner:upload_attachment' task.id %}" enctype="multipart/form-data" class="stack-form inline-task-form">
+                                {% csrf_token %}
+                                <label><span>File</span><input type="file" name="file" required></label>
+                                <label><span>Display name</span><input type="text" name="name" maxlength="140" placeholder="Optional"></label>
+                                <button type="submit" class="ghost-button small">Upload attachment</button>
+                            </form>
+                            <div class="attachment-list">
+                                {% for attachment in task.attachments.all %}
+                                    <article class="attachment-item">
+                                        <a href="{{ attachment.file.url }}" target="_blank" rel="noopener">{{ attachment.name|default:attachment.file.name }}</a>
+                                        <form method="post" action="{% url 'planner:delete_attachment' attachment.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="danger-button small">Remove</button>
+                                        </form>
+                                    </article>
+                                {% empty %}
+                                    <p class="empty-state">No attachments yet.</p>
+                                {% endfor %}
+                            </div>
+                        </details>
+                    {% endif %}
+
+                    {% if task.user_is_owner %}
+                        <details class="task-details">
+                            <summary>Share task</summary>
+                            <form method="post" action="{% url 'planner:share_task' task.id %}" class="stack-form inline-task-form">
+                                {% csrf_token %}
+                                <label><span>Email</span><input type="email" name="recipient_email" placeholder="teammate@example.com" required></label>
+                                <label class="checkbox-row">
+                                    <input type="checkbox" name="can_edit" checked>
+                                    <span>Allow editing</span>
+                                </label>
+                                <label><span>Message</span><textarea name="message" rows="2" placeholder="Optional message for recipient"></textarea></label>
+                                <button type="submit" class="ghost-button small">Send share invite</button>
+                            </form>
+                        </details>
+                        <form method="post" action="{% url 'planner:delete_task' task.id %}">
+                            {% csrf_token %}
+                            <label>
+                                <span>Delete scope</span>
+                                <select name="delete_scope">
+                                    <option value="single">Only this task</option>
+                                    {% if task.recurrence_series %}
+                                        <option value="series">Entire series</option>
+                                    {% endif %}
+                                </select>
+                            </label>
+                            <button type="submit" class="danger-button">Delete</button>
+                        </form>
+                    {% endif %}
+                </section>
+            {% empty %}
+                <p class="empty-state">No tasks scheduled for this day yet.</p>
+            {% endfor %}
+        </div>
+    </article>
+
+    <article class="glass-card calendar-card">
+        <div class="panel-heading">
+            <div>
+                <p class="eyebrow">Calendar</p>
+                <h2>{{ month_label }}</h2>
+            </div>
+            <div class="month-nav">
+                <a href="?year={{ previous_year }}&month={{ previous_month }}&day=1" class="ghost-button">Previous</a>
+                <a href="?year={{ next_year }}&month={{ next_month }}&day=1" class="ghost-button">Next</a>
+            </div>
+        </div>
+        <div class="calendar-headings">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+        <div class="calendar-grid">
+            {% for week in calendar_weeks %}
+                {% for cell in week %}
+                    <a href="?year={{ cell.date.year }}&month={{ cell.date.month }}&day={{ cell.date.day }}" class="calendar-cell {% if not cell.in_month %}outside{% endif %} {% if cell.is_today %}today{% endif %} {% if cell.date == selected_date %}selected{% endif %}">
+                        <span class="day-label">{{ cell.date|date:'j' }}</span>
+                        <div class="calendar-task-list">
+                            {% for task in cell.tasks|slice:':3' %}
+                                <span class="calendar-pill {{ task.category }} {% if task.is_done %}done{% endif %}">{{ task.title }}</span>
+                            {% endfor %}
+                            {% if cell.tasks|length > 3 %}
+                                <span class="calendar-more">+{{ cell.tasks|length|add:'-3' }} more</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </article>
+
+    <article class="glass-card upcoming-card">
+        <div class="panel-heading compact">
+            <div>
+                <p class="eyebrow">Upcoming</p>
+                <h2>Active tasks</h2>
+            </div>
+        </div>
+        <div class="upcoming-list">
+            {% for task in upcoming_tasks %}
+                <div class="upcoming-item">
+                    <div>
+                        <span class="category-pill {{ task.category }}">{{ task.get_category_display }}</span>
+                        <h3>{{ task.title }}</h3>
+                        <p>{{ task.scheduled_for|date:'M j, Y' }}{% if task.due_time %} at {{ task.due_time|time:'H:i' }}{% endif %}</p>
+                    </div>
+                    <span class="status-pill {{ task.status }}">{{ task.get_status_display }}</span>
+                </div>
+            {% empty %}
+                <p class="empty-state">You have no in-progress tasks queued up.</p>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+{% endblock %}

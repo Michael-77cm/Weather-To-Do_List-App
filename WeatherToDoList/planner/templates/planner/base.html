@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}WeatherToDo{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'planner/styles.css' %}">
+</head>
+<body>
+    <div class="page-backdrop"></div>
+    <header class="site-header">
+        <a href="{% url 'planner:dashboard' %}" class="brand">WeatherToDo</a>
+        <nav class="site-nav">
+            {% if request.user.is_authenticated %}
+                <span class="user-chip">{{ request.user.username }}</span>
+                <a href="{% url 'planner:dashboard' %}">Dashboard</a>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="ghost-button">Log out</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+                <a href="{% url 'planner:signup' %}" class="ghost-button">Create account</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    {% if messages %}
+        <section class="message-stack">
+            {% for message in messages %}
+                <article class="message {{ message.tags }}">{{ message }}</article>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{% static 'planner/app.js' %}" defer></script>
+</body>
+</html>

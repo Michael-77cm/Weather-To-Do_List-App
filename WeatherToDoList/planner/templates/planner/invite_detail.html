@@ -1,0 +1,36 @@
+{% extends 'planner/base.html' %}
+
+{% block title %}Invitation | WeatherToDoList{% endblock %}
+
+{% block content %}
+<section class="invite-detail-shell">
+    <article class="glass-card invite-detail-card">
+        <p class="eyebrow">Task invitation</p>
+        <h1>{{ share.task.title }}</h1>
+        <p>From {{ share.sender.username }} · For {{ share.recipient_email }}</p>
+        <p class="muted-meta">Scheduled: {{ share.task.scheduled_for|date:'F j, Y' }} {% if share.task.due_time %}at {{ share.task.due_time|time:'H:i' }}{% endif %}</p>
+        <p class="muted-meta">Permission: {% if share.can_edit %}Can edit{% else %}View only{% endif %}</p>
+        {% if share.message %}
+            <blockquote class="invite-message">{{ share.message }}</blockquote>
+        {% endif %}
+
+        {% if share.status == 'pending' %}
+            <div class="task-actions">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="accept">
+                    <button type="submit" class="primary-button">Accept invite</button>
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="decline">
+                    <button type="submit" class="ghost-button">Decline invite</button>
+                </form>
+            </div>
+        {% else %}
+            <p class="empty-state">This invite is already {{ share.get_status_display|lower }}.</p>
+            <a href="{% url 'planner:dashboard' %}" class="ghost-button">Back to dashboard</a>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

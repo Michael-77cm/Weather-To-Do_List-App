@@ -1,0 +1,22 @@
+{% extends 'planner/base.html' %}
+
+{% block title %}Sign Up | WeatherToDoList{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-copy glass-card">
+        <p class="eyebrow">Create your space</p>
+        <h1>Build a year-long task calendar with live weather.</h1>
+        <p>Use your email to receive reminders, share tasks with other users, and keep your schedule accessible from one dashboard.</p>
+    </div>
+    <div class="auth-panel glass-card">
+        <h2>Create account</h2>
+        <form method="post" class="stack-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="primary-button">Create account</button>
+        </form>
+        <p class="auth-footnote">Already registered? <a href="{% url 'login' %}">Log in</a>.</p>
+    </div>
+</section>
+{% endblock %}
