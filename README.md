@@ -45,17 +45,17 @@ WeatherToDoList is a Django web app that combines:
 
 ## Features
 
-- Sign up, log in, and log out with Django authentication
-- Save user emails in the database through Django's user model
-- Create, read, update, delete, and share tasks
-- Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
-- Mark tasks as `in progress` or `done`
-- Configure recurring tasks (daily/weekly/monthly/yearly)
-- Browse tasks on a monthly calendar and inspect a selected day
-- Upload and remove file attachments per task
-- Search for cities globally with autocomplete
-- Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
-- Send share invite emails with accept/decline workflow and scheduled task reminder emails
+- :white_check_mark:Sign up, log in, and log out with Django authentication
+- :white_check_mark:Save user emails in the database through Django's user model
+- :white_check_mark:Create, read, update, delete, and share tasks
+- :white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
+- :white_check_mark:Mark tasks as `in progress` or `done`
+- :white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
+- :white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
+- :white_check_mark:Upload and remove file attachments per task
+- :white_check_mark:Search for cities globally with autocomplete
+- :white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
+- :white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
 
 ## Install and run
 
