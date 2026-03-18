@@ -13,7 +13,7 @@
 <body>
     <div class="page-backdrop"></div>
     <header class="site-header">
-        <a href="{% url 'planner:dashboard' %}" class="brand">WeatherToDo</a>
+        <a href="{% url 'planner:dashboard' %}" class="brand">WeatherToDoList</a>
         <nav class="site-nav">
             {% if request.user.is_authenticated %}
                 <span class="user-chip">{{ request.user.username }}</span>
