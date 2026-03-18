@@ -40,7 +40,7 @@ WeatherToDoList is a Django web app that combines:
 
 - Django
 - HTML, CSS, JavaScript
-- SQLite
+- PostgreSQL
 - Open-Meteo geocoding and forecast APIs
 
 ## Features
@@ -63,6 +63,49 @@ Create and activate a virtual environment if needed, then install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Create a local `.env` file at the project root (you can copy from `.env.example`).
+Django now auto-loads `.env`, so you do not need to prefix DB variables on every command.
+
+Run the app:
+
+```bash
+python manage.py runserver
+```
+
+## Move Existing SQLite Data To PostgreSQL
+
+If you have existing data in `WeatherToDoList/db.sqlite3`, migrate it to PostgreSQL with the steps below.
+
+1. Create a PostgreSQL database (example name: `weather_todo_db`).
+2. Add your PostgreSQL values to `.env`:
+
+```bash
+DB_NAME=weather_todo_db
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+3. Export data from SQLite:
+
+```bash
+DATABASE_URL="sqlite:///WeatherToDoList/db.sqlite3" python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > data.json
+```
+
+4. Run migrations against PostgreSQL:
+
+```bash
+python manage.py migrate
+```
+
+5. Import the exported data into PostgreSQL:
+
+```bash
+python manage.py loaddata data.json
+```
 
 
 

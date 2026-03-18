@@ -1,0 +1,133 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ircc9Sa735Q2n1wLoiirST$y202sBnUHr0k2IEFBNMwoQmrWoLqpEkPG+9Pm/QnIGs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user",
+    "first_name": "",
+    "last_name": "",
+    "email": "michaelbello175@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-14T16:33:05.564Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$gEeUkKVtFUDcsQhr2aFvTl$aKvkE9lgkp6LHaAfetMpFRUGmg+XnbxInL/9k2CSK9s=",
+    "last_login": "2026-03-14T18:02:33.364Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-14T16:51:11.414Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$2R70Kh4uwA5Ydbr2Kn6DWU$uUitTHfDOE7OHyu8phFeqSR8dtNkWzy2dSMRFjLM3qY=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "AdminUser",
+    "first_name": "",
+    "last_name": "",
+    "email": "michaelbello175@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-14T18:22:27.410Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "98qvjxompx4qbqnthg3j512fzs2rlv52",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-e6Gkzxks766NAyiW8qkQd4dIKaB9M_NeIuVtbWlbypxGFhfhxOl3w0yPMu2A73m6dUl9WucR5a7Igy5y6Fye18P9O2h5ad9aVWPBo9PnHBQwUPDESvkI0TuFVIyrWCyHCAbZYEUyQVdiHSMAWvH-ANPTN9Y:1w1Rxv:k6i2YCWO8Xkjz3UIV9ZpJQpILEFxE0R2LVxx1tAY3rM",
+    "expire_date": "2026-03-28T16:35:51.117Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b1wd9dmh8e7q4g6t2u5z4phpd22renei",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAURO_StWlK-yl-l-45A2l_B4uaklBYGe-uJCx0O--9eakhbGsetoplmJK6qFadfrcY5IGyg3QP5TZrmcu6TFHvij5o1f2c8Lwe7t9BDjV_a29t17BlGQM8U-xaByb2xBGeOiJjgDM74cZa-EQgcRDjXDQCGtX7A8AqN1s:1w1ShF:7xZdBEcuMXqdEmtLypzcXpd-IMaibRW4pxs_ShxU5rQ",
+    "expire_date": "2026-03-28T17:22:41.396Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "br4l3tsr6naodoi5sqk8ugyojrhd8svn",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAUBf-FtSG8WopL934DuQ8qVQNJaVfGf1eSLnR5zkzmJSLsW457S2tcWJyFFqffD4EeqXTAdyi3KqmWbV1QdkUetMlr5fS8HO5fIEPLPUvOT8GQI9CBEWc3Y1LeO2sMGxUCjvo7tDagaTBMScFIg8fAU7KWxPsD3C43wg:1w1S4N:sXjSJrKvOarEsDelhzL4758UA_yHwN3UqqFfYdRM7NE",
+    "expire_date": "2026-03-28T16:42:31.255Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cctlqlvgxbvaeiyl32hfnmm931njnuca",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKAqUevfcNZHfZStW0SWlPxr8bkh70OjOZt0p47CUdVbY0Z3VVXl1-GSE_ZWkiP3C5r5rXZd9m0i3Rp616XLO8bmf7NyhYS9tCzIgGjfN2EjBeglCwfTST90wR2MnQdx0bgs4yAPJAQQxxdGIdqM8X33E3ug:1w1TJE:36bAccAM3omj_cZtM5Nin40lIXNgNV9C-Ysv6hiZoWw",
+    "expire_date": "2026-03-28T18:01:56.548Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "f6hzm8n7kln7g9yqxdpq7ypgteil51k4",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-xD9Kes5g7dpeHEC2FCcV4u4QKQW0b2bei0XY1hq3UZY4Z3Zmhp1-N4T0KG0H-Q7t1nnqbV1m5LvCDzr4tefyvBzu30GFUb-18BpQUpiKDSShGACPAhAtSK-SM9YGIAok0IFTJLJGkcko6dFMSbP3BwE-OIk:1w1SoH:EQmrp7_BuwgpJsqQ-o6ymBJaz5i6MIictRmwjXT704Q",
+    "expire_date": "2026-03-28T17:29:57.116Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oqf5wp0s8kazwzw7oougg4nlodp1bcah",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKAqUevfcNZHfZStW0SWlPxr8bkh70OjOZt0p47CUdVbY0Z3VVXl1-GSE_ZWkiP3C5r5rXZd9m0i3Rp616XLO8bmf7NyhYS9tCzIgGjfN2EjBeglCwfTST90wR2MnQdx0bgs4yAPJAQQxxdGIdqM8X33E3ug:1w1Sw7:cW5EFjS4Jb9aPvH5b0-EoD6eG-Psyf_qxc_OdOd-eas",
+    "expire_date": "2026-03-28T17:38:03.627Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qbhtmy4yn0tgv2y683lf8atrixrrt35g",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoQwCX7j0DGWBGqgaS0q6Md9cmXej2v_f-S0Tc1hq3QUucizgLI06_W8L8oLaDcsd26zL3ti5zkrsiDzrktRd6Xg7376DiqN_auQBU2KRs0Wtl2SGogJwNaPDBkbI5eMPMmGzxyjsCPTG4YCawlsX7A-VJN5M:1w1Rxk:7oPzheGfv-Exh4Fc59V2Qwrq85-11nkgjx4UcioYwEg",
+    "expire_date": "2026-03-28T16:35:40.028Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qj3a5t9no27051zb5313kh68o5fme56n",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlnxP6ak5wzWenfBAWRLcVIh7k4ipYBminlv5i0SrEtJa-c5TSTOwonTb5cBn1x3QA-o9yax1WWestwVedAur434dTncv4MCvWxrBR7JAXt0hknFEFUYOBhWNsabz2wtxQADazLMGjUgDEYr2HLUI4nPF_LJOCc:1w1SNW:_gLhgNuLYpxiCqeTOj7vzhmee1eGjY72qBDTdO7crs0",
+    "expire_date": "2026-03-28T17:02:18.672Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rmy9leh2iyzs0gzpqwjdrkww2sg48frn",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKAqUevfcNZHfZStW0SWlPxr8bkh70OjOZt0p47CUdVbY0Z3VVXl1-GSE_ZWkiP3C5r5rXZd9m0i3Rp616XLO8bmf7NyhYS9tCzIgGjfN2EjBeglCwfTST90wR2MnQdx0bgs4yAPJAQQxxdGIdqM8X33E3ug:1w1T7v:gbGWZrP7U4erk1ZA9WoosEd49VDwZKARptzKU3hX2_s",
+    "expire_date": "2026-03-28T17:50:15.846Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v5pq6f4ixhn72f0m9uc1c5m4h5ynd4mu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKAqUevfcNZHfZStW0SWlPxr8bkh70OjOZt0p47CUdVbY0Z3VVXl1-GSE_ZWkiP3C5r5rXZd9m0i3Rp616XLO8bmf7NyhYS9tCzIgGjfN2EjBeglCwfTST90wR2MnQdx0bgs4yAPJAQQxxdGIdqM8X33E3ug:1w1TJp:PiVplROapVy-MCmlca35nyW2tQtlK1AQSL6n3PEVoWM",
+    "expire_date": "2026-03-28T18:02:33.373Z"
+  }
+}
+]
