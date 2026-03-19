@@ -150,6 +150,39 @@ Start the Django development server:
 
 <div style="position: relative;">
 
+  <button
+    onclick="navigator.clipboard.writeText(document.getElementById('copy-box').innerText)"
+    style="
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f3f3f3;
+    "
+  >
+    Copy
+  </button>
+
+  <pre id="copy-box" style="
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f8f8f8;
+      overflow: auto;
+  ">
+This is the text inside the box.
+You can put code, commands, or anything you want here.
+  </pre>
+
+</div>
+
+
+<div style="position: relative;">
+
 <button onclick="navigator.clipboard.writeText(document.getElementById('code-box').innerText)"
         style="position: absolute; top: 8px; right: 8px; padding: 4px 8px; cursor: pointer;">
   Copy
