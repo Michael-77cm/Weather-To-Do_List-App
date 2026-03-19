@@ -10,6 +10,11 @@
 Stay organised with a to‑do list that adapts to the weather. This app combines your tasks with real‑time forecasts so you can plan smarter, avoid surprises, and make the most of every day. Whether it’s sunshine, rain, or anything in between, your schedule adjusts automatically to keep you on track.
 
 
+
+
+
+
+
 ---
 ## :scroll:Table of Contents:scroll:  
 ---
@@ -21,7 +26,7 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 - [Deployment](D)
 - [Credits](C)
 #
-# WeatherToDoList
+# :snowflake: WeatherToDoList :snowflake:
 ---
 WeatherToDoList is a Django web app that combines:
 
@@ -30,45 +35,27 @@ WeatherToDoList is a Django web app that combines:
 - a calendar-backed task manager for any day of the year
 - task categories, status tracking, CRUD operations, sharing, and email reminders
 
+
+
+
 ##
-## Tech Stack
+## 🛠️ Tech Stack / Technologies Used 🛠️
 ---
-- Django
-- HTML, CSS, JavaScript
-- PostgreSQL
-- Django==4.2.28
-- requests
-- gunicorn==20.1.0
-- dj-database-url==2.2.0
-- psycopg2-binary==2.9.9
-- whitenoise==6.7.0
-- asgiref==3.11.1
-- certifi==2026.2.25
-- charset-normalizer==3.4.5
-- dj-database-url==2.2.0
-- Django==4.2.28
-- gunicorn==20.1.0
-- idna==3.11
-- psycopg2-binary==2.9.9
-- requests==2.32.5
-- setuptools==80.9.0
-- sqlparse==0.5.5
-- typing_extensions==4.15.0
-- tzdata==2025.3
-- urllib3==2.6.3
-- whitenoise==6.7.0
-- Open-Meteo geocoding and forecast APIs
+- Primary Framework: 🐍 [Django](D) (Web framework)
+- Front-end: [HTML, CSS, JavaScript](HCJ)
+- Language Environment: 💻 [Python](P)
+- Database Interface: 🐘 [PostgreSQL](P)
+- Web Server: 🚀 [Gunicorn](G) (WSGI HTTP server for production)
+- Static Files: ❄️ [WhiteNoise](w) (allows Django to serve its own static files)
+- Database Configuration: 🔗 [dj-database-url](dj) (used to configure databases via environment variables, common in Docker/Heroku setups)
+- HTTP Client: 📡 [Requests](R) (for making API calls to other services)
+- Interface Specs: ⚙️ [asgiref](a) (standard for asynchronous Python web services)
+- [Open-Meteo geocoding and forecast APIs](O)
 
-```python
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    ]
-```
 
 
 ##
-## Features (User Stories)
+## 👨‍💻 Features / User Stories 👨‍💻
 ---
 As a user of the site I should be able to: 
 
@@ -173,7 +160,7 @@ http://127.0.0.1:8000/
 Your app is now running locally!
 
 ##
-## Credit 
+## 📖 Credits 📖
 ---
 In putting together this project 
 AI was used for putting together the base structure of code and troubleshooting code errors. 
