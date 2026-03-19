@@ -57,59 +57,50 @@ WeatherToDoList is a Django web app that combines:
 - :white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
 - :white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
 
-## Install and run
 
-Create and activate a virtual environment if needed, then install dependencies:
 
-```bash
+
+
+Deployment and how to deploy
+The project is currently deployed on Heroku, you can find it by following the link below:
+
+https://hmoon96-meal-planner-9c8cfb97430e.herokuapp.com/
+Cloning and Setting Up Locally
+Follow these steps to clone the repository and set it up on your local machine:
+
+Clone the Repository:
+
+Open your terminal and run:
+git clone https://github.com/Michael-77cm/Weather-To-Do_List.git 
+cd weather-to-do_List
+Set Up a Virtual Environment:
+
+Create and activate a virtual environment:
+python -m venv .venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Dependencies:
+
+Install the required Python packages:
 pip install -r requirements.txt
-```
+Set Up Environment Variables:
 
-Create a local `.env` file at the project root (you can copy from `.env.example`).
-Django now auto-loads `.env`, so you do not need to prefix DB variables on every command.
+Create a .env file in the root directory and add the following:
+SECRET_KEY=your-secret-key
+DATABASE_URL=sqlite:///db.sqlite3  # Or your database URL
+DEBUG=True
+Run Migrations:
 
-Run the app:
-
-```bash
-python manage.py runserver
-```
-
-## Move Existing SQLite Data To PostgreSQL
-
-If you have existing data in `WeatherToDoList/db.sqlite3`, migrate it to PostgreSQL with the steps below.
-
-1. Create a PostgreSQL database (example name: `weather_todo_db`).
-2. Add your PostgreSQL values to `.env`:
-
-```bash
-DB_NAME=weather_todo_db
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-```
-
-3. Export data from SQLite:
-
-```bash
-DATABASE_URL="sqlite:///WeatherToDoList/db.sqlite3" python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > data.json
-```
-
-4. Run migrations against PostgreSQL:
-
-```bash
+Apply database migrations:
 python manage.py migrate
-```
+Run the Development Server:
 
-5. Import the exported data into PostgreSQL:
+Start the Django development server:
+python manage.py runserver
+Access the App:
 
-```bash
-python manage.py loaddata data.json
-```
-
-
-
-
+Open your browser and go to:
+http://127.0.0.1:8000/
+Your app is now running locally!
 
 
 
