@@ -146,7 +146,7 @@ Apply database migrations:
 
 Run the Development Server:
 Start the Django development server:
-- python manage.py runserver
+- '''python manage.py runserver'''
 
 Access the App:
 
