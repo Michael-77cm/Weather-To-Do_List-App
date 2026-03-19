@@ -37,6 +37,24 @@ function createCloud(sizeClass) {
     return cloud;
 }
 
+function createElement(tag, className) {
+    const node = document.createElement(tag);
+    node.className = className;
+    return node;
+}
+
+function createStars(count) {
+    const fragment = document.createDocumentFragment();
+    for (let index = 0; index < count; index += 1) {
+        const star = createElement('span', 'star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 62}%`;
+        star.style.animationDelay = `${Math.random() * 3.5}s`;
+        fragment.appendChild(star);
+    }
+    return fragment;
+}
+
 function renderScene(condition, isDay) {
     if (!weatherScene || !weatherPanel) {
         return;
@@ -45,43 +63,67 @@ function renderScene(condition, isDay) {
     weatherScene.innerHTML = '';
     weatherPanel.dataset.condition = condition;
     weatherScene.dataset.mode = isDay ? 'day' : 'night';
+    weatherScene.dataset.condition = condition;
+    weatherScene.classList.remove('scene-refresh');
+    // Restart entry animation when city changes.
+    window.requestAnimationFrame(() => weatherScene.classList.add('scene-refresh'));
+
+    weatherScene.appendChild(createElement('div', 'sky-glow'));
+    weatherScene.appendChild(createElement('div', 'horizon'));
 
     switch (condition) {
         case 'clear': {
             const sun = document.createElement('div');
             sun.className = isDay ? 'sun' : 'moon';
             weatherScene.appendChild(sun);
+            weatherScene.appendChild(createElement('div', 'orb-ring'));
+            if (!isDay) {
+                const stars = createElement('div', 'stars');
+                stars.appendChild(createStars(40));
+                weatherScene.appendChild(stars);
+                weatherScene.appendChild(createElement('div', 'comet'));
+            }
             weatherScene.appendChild(createParticles('sparkle', 18));
             break;
         }
         case 'cloudy': {
             weatherScene.appendChild(createCloud('large'));
             weatherScene.appendChild(createCloud('medium'));
+            weatherScene.appendChild(createCloud('small'));
+            weatherScene.appendChild(createElement('div', 'haze'));
             weatherScene.appendChild(createParticles('sparkle faint', 12));
             break;
         }
         case 'rain': {
             weatherScene.appendChild(createCloud('large'));
             weatherScene.appendChild(createCloud('small'));
+            weatherScene.appendChild(createElement('div', 'rain-curtain'));
+            weatherScene.appendChild(createParticles('ripple', 10));
             weatherScene.appendChild(createParticles('raindrop', 34));
             break;
         }
         case 'snow': {
             weatherScene.appendChild(createCloud('large'));
+            weatherScene.appendChild(createCloud('medium'));
+            weatherScene.appendChild(createElement('div', 'snow-drift'));
             weatherScene.appendChild(createParticles('snowflake', 28));
             break;
         }
         case 'storm': {
             weatherScene.appendChild(createCloud('large'));
             weatherScene.appendChild(createCloud('medium'));
-            const flash = document.createElement('div');
-            flash.className = 'lightning';
-            weatherScene.appendChild(flash);
+            weatherScene.appendChild(createElement('div', 'storm-halo'));
+            weatherScene.appendChild(createElement('div', 'lightning'));
+            weatherScene.appendChild(createElement('div', 'lightning secondary'));
+            weatherScene.appendChild(createElement('div', 'rain-curtain'));
             weatherScene.appendChild(createParticles('raindrop heavy', 28));
             break;
         }
         default: {
             weatherScene.appendChild(createCloud('large'));
+            weatherScene.appendChild(createElement('div', 'haze'));
+            weatherScene.appendChild(createElement('div', 'fog-band one'));
+            weatherScene.appendChild(createElement('div', 'fog-band two'));
             weatherScene.appendChild(createParticles('fog', 10));
             break;
         }
