@@ -55,7 +55,7 @@ WeatherToDoList is a Django web app that combines:
 
 
 ##
-## Features / User Stories
+##👨‍💻 Features / User Stories 👨‍💻
 ---
 As a user of the site I should be able to: 
 
