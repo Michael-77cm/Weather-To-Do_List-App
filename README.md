@@ -10,6 +10,20 @@
 Stay organised with a to‑do list that adapts to the weather. This app combines your tasks with real‑time forecasts so you can plan smarter, avoid surprises, and make the most of every day. Whether it’s sunshine, rain, or anything in between, your schedule adjusts automatically to keep you on track.
 
 
+### 🛠️ Tech Stack & Dependencies
+
+*   **Framework:** 🐍 **Django 4.2** — High-level Python Web framework
+*   **Language:** 💻 **Python 3.x** — Core programming language
+*   **Database:** 🐘 **PostgreSQL** — Relational database (via `psycopg2`)
+*   **Web Server:** 🚀 **Gunicorn** — WSGI HTTP Server for production
+*   **Static Files:** ❄️ **WhiteNoise** — Radically simplified static file serving
+*   **API/HTTP:** 📡 **Requests** — HTTP library for Python
+*   **Database Config:** 🔗 **dj-database-url** — Environment variable based config
+*   **Utils:** ⚙️ **sqlparse** & **asgiref** — SQL formatting and ASGI/WSGI integration
+
+
+
+
 ---
 ## :scroll:Table of Contents:scroll:  
 ---
