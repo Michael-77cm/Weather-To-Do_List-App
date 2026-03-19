@@ -6,7 +6,7 @@
 <section class="dashboard-grid">
     <article class="weather-panel glass-card" data-weather-panel data-condition="clear" data-vibe="realistic">
         <div class="weather-now-banner">
-            <p class="live-now" data-weather-now aria-live="polite">Loading date and time...</p>
+            <div class="live-now" data-weather-now aria-live="polite">Today: {% now "l, F j, Y" %} | Time: {% now "h:i:s A" %}</div>
         </div>
 
         <div class="panel-heading">
