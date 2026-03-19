@@ -50,6 +50,10 @@ As a user of the site I should be able to:
 
 :point_right: Link to Kanban board of Userstories: :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
 
+Once a task is successful created a notification pops up at this top of the screen: 
+<img width="2886" height="153" alt="image" src="https://github.com/user-attachments/assets/a085a778-4260-4ef5-bb49-6aae96917d1b" />
+
+
 User Experience 
 - :white_check_mark: User Stories :white_check_mark:
 
