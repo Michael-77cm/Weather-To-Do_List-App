@@ -49,16 +49,16 @@ main {
 
 .site-footer {
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(90vw, 520px);
+    left: 1rem;
+    bottom: 1rem;
+    width: auto;
+    max-width: min(90vw, 520px);
     padding: 0.6rem 0.8rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 999px;
     background: rgba(11, 27, 39, 0.55);
     backdrop-filter: blur(8px);
-    text-align: center;
+    text-align: left;
 }
 
 .site-footer p {
