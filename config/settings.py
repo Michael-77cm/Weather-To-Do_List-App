@@ -59,7 +59,7 @@ load_local_env(BASE_DIR / '.env')
 SECRET_KEY = 'django-insecure-+1+^(5o&s=@_d%s)_oe70$&v#*^c%3*b+@gv^qr+kx@cp&-4+('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 
