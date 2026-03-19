@@ -82,9 +82,9 @@ Additional Features:
 Website Notifications: 
 Once a task is successful created, this notification pops up at this top of the screen: 
 <img width="2886" height="153" alt="image" src="https://github.com/user-attachments/assets/a085a778-4260-4ef5-bb49-6aae96917d1b" />
-Once a task is successfully edited, this notication pops up at the top of the screen: 
+Once a task is successfully edited, this notification pops up at the top of the screen: 
 <img width="2838" height="141" alt="image" src="https://github.com/user-attachments/assets/be4eb028-4a17-4c2d-a90e-0666a2756e19" />
-Once you try to delete a task, this notication pops up at the top of the screen: 
+Once you try to delete a task, this notification pops up at the top of the screen: 
 <img width="500" height="255" alt="image" src="https://github.com/user-attachments/assets/5433df75-6972-4849-a7f4-580147a1dacf" />
 
 Once a task is completely deleted, this notification pops up at the top of the screen: 
