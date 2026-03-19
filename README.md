@@ -1,6 +1,5 @@
 ---
-***
- # Weather-To-Do_List
+Weather-To-Do_List
 # :sparkles: Welcome to Weather To-Do List :sparkles:
 :point_right: View the live project here: :point_right: https://weather-to-do-list-e7b16ee62076.herokuapp.com/
 <img width="3297" height="1671" alt="image" src="https://github.com/user-attachments/assets/c8070ac2-9539-400c-a78b-4468b145250f" />
