@@ -44,6 +44,7 @@ WeatherToDoList is a Django web app that combines:
 - Open-Meteo geocoding and forecast APIs
 
 ## Features (User Stories)
+As a user of the site I should be able to: 
 
 - :white_check_mark:Sign up, log in, and log out with Django authentication
 - :white_check_mark:Save user emails in the database through Django's user model
