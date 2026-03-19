@@ -121,7 +121,11 @@ Your app is now running locally!
 In putting together this project 
 AI was used for putting together the base structure of code and troubleshooting code errors. 
 
+Author
+Michael Bello
 
+GitHub: https://github.com/Michael-77cm/ 
+Email: michaelbello175@gmail.com
 
 
 
