@@ -75,6 +75,9 @@
             <label>
                 <span>Title</span>
                 {{ task_form.title }}
+                {% if task_form.title.errors %}
+                    <span class="field-error">{{ task_form.title.errors|striptags }}</span>
+                {% endif %}
             </label>
             <label>
                 <span>Description</span>

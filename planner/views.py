@@ -362,7 +362,49 @@ def create_task(request):
         sync_recurrence_series(task, create_series=create_series)
         messages.success(request, 'Task has been created successfully.')
     else:
-        messages.error(request, 'Task could not be created. Check the form fields.')
+        if 'title' in form.errors:
+            messages.error(request, 'Task title is required.')
+        else:
+            messages.error(request, 'Task could not be created. Check the form fields.')
+
+        today = timezone.localdate()
+        scheduled_raw = request.POST.get('scheduled_for')
+        try:
+            selected_date = date.fromisoformat(scheduled_raw) if scheduled_raw else today
+        except ValueError:
+            selected_date = today
+
+        year = selected_date.year
+        month = selected_date.month
+
+        visible_tasks = list(task_queryset_for_user(request.user))
+        decorate_task_permissions(visible_tasks, request.user)
+        selected_tasks = [task for task in visible_tasks if task.scheduled_for == selected_date]
+        upcoming_tasks = [
+            task for task in visible_tasks if task.scheduled_for >= today and task.status == TaskStatus.IN_PROGRESS
+        ][:8]
+
+        context = {
+            'task_form': form,
+            'attachment_form': TaskAttachmentForm(),
+            'share_form': TaskShareForm(),
+            'selected_date': selected_date,
+            'selected_tasks': selected_tasks,
+            'upcoming_tasks': upcoming_tasks,
+            'categories': Task._meta.get_field('category').choices,
+            'recurrences': Task._meta.get_field('recurrence').choices,
+            'received_invites': TaskShare.objects.filter(
+                status=TaskShareStatus.PENDING,
+                recipient=request.user,
+            ).select_related('task', 'sender')[:6],
+            'sent_pending_invites': TaskShare.objects.filter(
+                sender=request.user,
+                status=TaskShareStatus.PENDING,
+            ).select_related('task', 'recipient')[:6],
+        }
+        context.update(build_calendar_context(request.user, year, month))
+        return render(request, 'planner/dashboard.html', context)
+
     return redirect('planner:dashboard')
 
 

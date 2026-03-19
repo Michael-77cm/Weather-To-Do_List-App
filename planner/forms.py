@@ -44,11 +44,18 @@ class TaskForm(forms.ModelForm):
             'reminder_enabled',
         )
         widgets = {
+            'title': forms.TextInput(attrs={'required': 'required', 'maxlength': 140}),
             'scheduled_for': forms.DateInput(attrs={'type': 'date'}),
             'due_time': forms.TimeInput(attrs={'type': 'time'}),
             'recurrence_ends_on': forms.DateInput(attrs={'type': 'date'}),
             'description': forms.Textarea(attrs={'rows': 3}),
         }
+
+    def clean_title(self):
+        title = (self.cleaned_data.get('title') or '').strip()
+        if not title:
+            raise forms.ValidationError('Title is required.')
+        return title
 
     def clean(self):
         cleaned = super().clean()

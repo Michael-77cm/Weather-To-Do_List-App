@@ -872,6 +872,12 @@ textarea {
     font-size: 0.92rem;
 }
 
+.field-error {
+    color: #fecaca;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
 .calendar-headings {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
