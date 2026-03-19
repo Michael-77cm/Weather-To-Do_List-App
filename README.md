@@ -59,6 +59,15 @@ WeatherToDoList is a Django web app that combines:
 - whitenoise==6.7.0
 - Open-Meteo geocoding and forecast APIs
 
+```python
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "habitflow-<generated-id>.herokuapp.com"
+]
+```
+
+
 ##
 ## Features (User Stories)
 ---
