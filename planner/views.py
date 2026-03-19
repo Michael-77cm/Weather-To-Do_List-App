@@ -44,6 +44,7 @@ class SignUpView(CreateView):
             recipient=self.object,
         )
         login(self.request, self.object)
+        messages.success(self.request, 'Your account has been created successfully. Welcome!')
         return response
 
 
