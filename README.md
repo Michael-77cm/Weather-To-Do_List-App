@@ -48,7 +48,7 @@ As a user of the site I should be able to:
 - :white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
 - :white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
 
-:point_right: Link to Kanban board of Userstories: :point_right: https://github.com/users/Michael-77cm/projects/5
+:point_right: Link to Kanban board of Userstories: :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
 
 User Experience 
 - :white_check_mark: User Stories :white_check_mark:
