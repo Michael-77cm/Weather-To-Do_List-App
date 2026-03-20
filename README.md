@@ -10,7 +10,10 @@ Code Institute Individual Capstone Project / Final Individual Fullstack Project
 
 Stay organised with a to‑do list that adapts to the weather. This app combines your tasks with real‑time forecasts so you can plan smarter, avoid surprises, and make the most of every day. Whether it’s sunshine, rain, or anything in between, your schedule adjusts automatically to keep you on track.
 
-<center>This text will be centred.</center>
+<div align="center">
+  This text (or image) will be centred.
+</div>
+
 
 
 
