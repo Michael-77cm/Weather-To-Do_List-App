@@ -105,14 +105,13 @@ This diagram shows how a typical user moves through the website from entry → a
 
 
 **1. Landing Page (Home)**
-    ↓
 - User sees marketing message:
   “One place for weather, calendar planning, and shared tasks.”
 - Options:
   • Log In  
   • Create Account (Sign Up)
 
-    ↓
+       ↓
 
 **2. Authentication**
     ├── **Log In**
@@ -134,8 +133,8 @@ This diagram shows how a typical user moves through the website from entry → a
   • Email notifications for task reminders 
   • Email notifications for group tasks if there are collaborators
 
-    ↓
-
+      ↓
+    
 **4. Core User Actions**
     ├── **View Weather**
     │       • Location-based forecast  
