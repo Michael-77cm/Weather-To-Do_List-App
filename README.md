@@ -23,8 +23,8 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 #
 # :snowflake: 1. WeatherToDoList :snowflake:
 ---
-## Project Overview 
-WeatherToDoList is a Django web app that combines:
+## Project Overview / MVP 
+WeatherToDoList is a Django web app that should include:
 
 - user authentication
 - a live weather search experience for cities worldwide
