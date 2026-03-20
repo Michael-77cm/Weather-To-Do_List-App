@@ -69,28 +69,35 @@ As an admin I should be able to:
 
 :point_right: Link to Kanban board of ` User Stories` : :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
 
-# Additional Features / Future enhancements: 
-Website Notifications: 
-Once a task is successful created, this notification pops up at this top of the screen: 
+### Additional Features / Future enhancements: 
+Notifications:
+Within the website notifications are included to give feedback and enhance the user experience. With a pop up at the top of the screen a user is notified once: 
+
+A task is Created 
 <img width="2886" height="153" alt="image" src="https://github.com/user-attachments/assets/a085a778-4260-4ef5-bb49-6aae96917d1b" />
-Once a task is successfully edited, this notification pops up at the top of the screen: 
+A task is Edited 
 <img width="2838" height="141" alt="image" src="https://github.com/user-attachments/assets/be4eb028-4a17-4c2d-a90e-0666a2756e19" />
-Once you try to delete a task, this notification pops up at the top of the screen: 
-<img width="500" height="255" alt="image" src="https://github.com/user-attachments/assets/5433df75-6972-4849-a7f4-580147a1dacf" />
+An attempt to delete a task is made 
+
+<img width="300" height="155" alt="image" src="https://github.com/user-attachments/assets/5433df75-6972-4849-a7f4-580147a1dacf" />
 
 
-Once a task is completely deleted, this notification pops up at the top of the screen: 
+A task is Deleted 
 <img width="2832" height="141" alt="image" src="https://github.com/user-attachments/assets/70667d53-d0f5-4f5f-83d0-6ed344c3d679" />
 Additional Features: 
 - Three vibes on the weather app to select from, these would be: realistic, playful or dramatic. 
 - A tab that shows you what today
 - A tab that shows you the time with the seconds counting down
+- As a requirement without filling the Title field a user is unable create a task. 
+
+
+  
 Future Enhancements: 
 - Being able to create a Large number of tasks in a day
-- Having the tasks to do in a day to be in a clickable format where you can click to the next task as an added functionality and in order to be space efficient. 
+- Being able to click to the next task as an added functionality and in order to be space efficient. 
 
 ##
-## 4. Design / User Experience  
+## 4. 🎨 Design / User Experience 🎨  
 ---
 # :chart_with_upwards_trend: Wireframe Diagram :chart_with_upwards_trend:
 <img width="3342" height="1443" alt="image" src="https://github.com/user-attachments/assets/455b4789-5199-4266-b4ad-97447e9a4fbe" />
@@ -172,7 +179,7 @@ This diagram shows how a typical user moves through the website from entry → a
 ##
 ## 5. Testing 
 ---
-### Manual Testing
+### <div align="center"> 🛠️Manual Testing🛠️</div>
 
 | `Feature` | `Test Case` | `Expected Result` | `Actual Result` |
 |---|---|---|---|
@@ -200,11 +207,11 @@ CSS VALIDATION TEST
 JAVASCRIPT VALIDATION TEST 
 <img width="1596" height="1182" alt="image" src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" />
 
-<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
 CSS VALIDATION TEST 
-<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/54fe15e8-e5f6-45d5-bd3e-d43ea93f2791" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/54fe15e8-e5f6-45d5-bd3e-d43ea93f2791" />
 JAVASCRIPT VALIDATION TEST 
-<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" />
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" />
 
 
 
@@ -324,12 +331,10 @@ Now your deployed app is connected to your PostgreSQL cloud database.
 ##
 ## 📖 7. Credits 📖
 ---
-In putting together this project 
-AI was used for putting together the base structure of code and troubleshooting code errors. 
+Use of Ai
+AI and Github Copit were used throughout this project to generate the basic structure of code, debug and resolve code errors, automate repetitive tasks, create automated tests on the website and improve the responsiveness of the website. I manually reviewed the code for accuracy, suitability, ensured there were no security issues and made changes to the code before deployment.    
 
-Author
-Michael Bello
-
+Author: Michael Bello
 GitHub: https://github.com/Michael-77cm/ 
 
 
