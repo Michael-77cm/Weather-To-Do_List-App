@@ -72,6 +72,7 @@ As an admin I should be able to:
 ### Additional Features / Future enhancements: 
 Notifications:
 Within the website notifications are included to give feedback and enhance the user experience. With a pop up at the top of the screen a user is notified once: 
+
 A task is Created 
 <img width="2886" height="153" alt="image" src="https://github.com/user-attachments/assets/a085a778-4260-4ef5-bb49-6aae96917d1b" />
 A task is Edited 
