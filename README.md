@@ -185,8 +185,9 @@ This diagram shows how a typical user moves through the website from entry → a
 HTML VALIDATION TEST 
 <img width="3672" height="1332" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
 CSS VALIDATION TEST 
-
+<img width="3789" height="963" alt="image" src="https://github.com/user-attachments/assets/54fe15e8-e5f6-45d5-bd3e-d43ea93f2791" />
 JAVASCRIPT VALIDATION TEST 
+<img width="1764" height="1287" alt="image" src="https://github.com/user-attachments/assets/0caae080-3265-4e24-8c8e-241cc540bf3b" />
 
 
 
