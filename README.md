@@ -53,16 +53,16 @@ WeatherToDoList is a Django web app that should include:
 ---
 As a user of the site I should be able to: 
 
-- :white_check_mark:Sign up, log in, and log out with Django authentication
-- :white_check_mark:Create, read, update, delete, and share tasks
-- :white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
-- :white_check_mark:Mark tasks as `in progress` or `done`
-- :white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
-- :white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
-- :white_check_mark:Upload and remove file attachments per task
-- :white_check_mark:Search for cities globally with autocomplete
-- :white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
-- :white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
+:white_check_mark:Sign up, log in, and log out with Django authentication
+:white_check_mark:Create, read, update, delete, and share tasks
+:white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
+:white_check_mark:Mark tasks as `in progress` or `done`
+:white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
+:white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
+:white_check_mark:Upload and remove file attachments per task
+:white_check_mark:Search for cities globally with autocomplete
+:white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
+:white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
 
 As an admin I should be able to: 
 - :white_check_mark:Save user emails in the database through Django's user model
@@ -103,6 +103,10 @@ I have made some changes to the model as it developed, such as removing the crea
 ## 🌦️ User Flow Diagram — Weather To‑Do List App
 This diagram shows how a typical user moves through the website from entry → authentication → dashboard → tasks & weather features.
 <img width="4345" height="3909" alt="user flow diagram weather todo list" src="https://github.com/user-attachments/assets/05793e7f-8a68-429f-b8ae-1bcf68d7a15b" />
+
+
+---
+
 
 
 **1. Landing Page (Home)**
@@ -170,15 +174,24 @@ This diagram shows how a typical user moves through the website from entry → a
 ---
 ### Manual Testing
 
-| Feature | Test Case | Expected Result | Actual Result |
+| `Feature` | `Test Case` | `Expected Result` | `Actual Result` |
 |---|---|---|---|
-| Sign up | User registers with valid details | Account created and verification sent | ✅`Pass`|
+| Sign up | User registers with valid credentials | Account is created and verification sent | ✅`Pass`|
 | Login | Existing user logs in | User redirected to dashboard | ✅`Pass` |
-| Create Task | User creates a thread | Thread appears in selected category | ✅`Pass` |
-| Edit Task | Author edits own thread | Changes save successfully | ✅`Pass` |
-| Delete Task | Author deletes own thread | Thread removed from forum | ✅`Pass` |
+| Create Task | User creates a task | Task appears in selected category | ✅`Pass` |
+| Edit Task | User edits own task | Changes save successfully | ✅`Pass` |
+| Delete Task | User deletes own task | Task gets deleted from todolist | ✅`Pass` |
+| Share Task | User shares a task | Recipients receive an email with details to view the task | ✅`Pass` |
+| Complet Task | User clicks on task complete | Task moves to completed section | ✅`Pass` |
+| Delete Task | User deletes own task | Thread removed from forum | ✅`Pass` |
 | Comment create | User adds comment | Comment appears in thread | ✅`Pass` |
-| Responsive layout | Open app on mobile/tablet/desktop | Layout adapts without major issues | `Pass` |
+| Recurring Task | User ticks box for recurring task | Task appears multiple times on the calendar for the tasks duration | ✅`Pass` |
+| Upload Attachment | User clicks on upload attachment | Attachements gets uploaded to the task | ✅`Pass` |
+| Delete Attachment | User clicks deletes on an attachment | Attachment gets deleted | ✅`Pass` |
+| Search a City | User starts typing the name of a city | Autocomplete helps to displays the full name of the city | ✅`Pass` |
+| Date & Time | User logs into the dashboard | Date & Time is displayed | ✅`Pass` |
+| Display Weather condition | User clicks on search button after typing a city | The weather in that city appears | ✅`Pass` |
+| Change of Weather Vibes | User clicks on realistic, playful or dramatic vibe | Weather conditions changes to realistic, playful or dramatic vibe | ✅`Pass` |
 
 HTML VALIDATION TEST 
 <img width="3672" height="1332" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
