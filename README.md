@@ -7,6 +7,8 @@
 <div align="center"> :point_right: https://weather-to-do-list-e7b16ee62076.herokuapp.com/ :point_left:</div>
 
 --- 
+<img width="2946" height="1680" alt="image" src="https://github.com/user-attachments/assets/2464fe5b-dbaf-4ee5-b987-c18b0933c80a" />
+
 <img width="3297" height="1671" alt="image" src="https://github.com/user-attachments/assets/c8070ac2-9539-400c-a78b-4468b145250f" />
 
 
