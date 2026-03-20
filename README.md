@@ -170,8 +170,6 @@ This diagram shows how a typical user moves through the website from entry → a
 ---
 ### Manual Testing
 
-`camry`
-
 | Feature | Test Case | Expected Result | Actual Result |
 |---|---|---|---|
 | Sign up | User registers with valid details | Account created and verification sent | `[PASS]`|
@@ -189,6 +187,36 @@ CSS VALIDATION TEST
 JAVASCRIPT VALIDATION TEST 
 <img width="1596" height="1182" alt="image" src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" />
 
+<img width="1000" height="1332" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
+CSS VALIDATION TEST 
+<img width="1000" height="963" alt="image" src="https://github.com/user-attachments/assets/54fe15e8-e5f6-45d5-bd3e-d43ea93f2791" />
+JAVASCRIPT VALIDATION TEST 
+<img width="800" height="1182" alt="image" src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" />
+
+
+
+
+<div style="display: flex; gap: 32px; align-items: flex-start; margin-bottom: 16px; justify-content: center;">
+	<div>
+		<img src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" width="480" alt="HTML Validator Screenshot" />
+		<p style="text-align:center; font-size:14px;">HTML Validator Screenshot</p>
+	</div>
+  <div>
+		<img src="https://github.com/user-attachments/assets/54fe15e8-e5f6-45d5-bd3e-d43ea93f2791" width="480" alt="CSS Validator Screenshot" />
+		<p style="text-align:center; font-size:14px;">CSS Validator Screenshot</p>
+	</div>
+	
+  <div>
+		<img src="https://github.com/user-attachments/assets/5f762cc6-f262-45c9-8906-f1dd60271baa" width="480" alt="HTML Validator Screenshot" />
+		<p style="text-align:center; font-size:14px;">JS Validator Screenshot</p>
+	</div>
+</div>
+
+
+
+
+
+
 ### Automated Testing 
 
 | **Category** | **Test Class**             | **Tests** | **Focus Areas**                                      | **Status** |
@@ -203,14 +231,6 @@ JAVASCRIPT VALIDATION TEST
 | API          | WeatherAPITests             | 2         | Parameters, response structure                        | ✅ Pass    |
 | **Total**    | **8 Categories**            | **24**    |                                                       | **100%**   |
 
-Key Coverage:
-`Form validation & error handling`
-`Model CRUD operations`
-`User authentication & session management`
-`Task-level permission enforcement`
-`External API integration`
-`Database persistence`
-
 - Key Coverage: 
   - `Form validation & error handling`
   - `Model CRUD operations`
@@ -218,7 +238,6 @@ Key Coverage:
   - `Task-level permission enforcement`
   - `External API integration`
   - `Database persistence`
-
 
 ##
 ## 6. Deployment 
