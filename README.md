@@ -8,16 +8,7 @@
 
 --- 
 <img width="2946" height="1680" alt="image" src="https://github.com/user-attachments/assets/2464fe5b-dbaf-4ee5-b987-c18b0933c80a" />
-
-
 Stay organised with a to‑do list that adapts to the weather. This app combines your tasks with real‑time forecasts so you can plan smarter, avoid surprises, and make the most of every day. Whether it’s sunshine, rain, or anything in between, your schedule adjusts automatically to keep you on track.
-
-
-
-
-
-
-
 
 ---
 ## :scroll:Table of Contents:scroll:  
@@ -39,9 +30,6 @@ WeatherToDoList is a Django web app that combines:
 - a calendar-backed task manager for any day of the year
 - task categories, status tracking, CRUD operations, sharing, and email reminders
 
-
-
-
 ##
 ## 🛠️ 2. Tech Stack / Technologies Used 🛠️
 ---
@@ -55,8 +43,6 @@ WeatherToDoList is a Django web app that combines:
 - HTTP Client: 📡 [Requests](R) (for making API calls to other services)
 - Interface Specs: ⚙️ [asgiref](a) (standard for asynchronous Python web services)
 - [Open-Meteo geocoding and forecast APIs](O)
-
-
 
 ##
 ## 👨‍💻 3. Features / User Stories 👨‍💻
@@ -191,7 +177,7 @@ Now your deployed app is connected to your PostgreSQL cloud database.
 
 
 ##
-## 📖 Credits 📖
+## 📖 7. Credits 📖
 ---
 In putting together this project 
 AI was used for putting together the base structure of code and troubleshooting code errors. 
