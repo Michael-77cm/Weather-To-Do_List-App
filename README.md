@@ -44,10 +44,12 @@ WeatherToDoList is a Django web app that combines:
 - Interface Specs: ⚙️ [asgiref](a) (standard for asynchronous Python web services)
 - [Open-Meteo geocoding and forecast APIs](O)
 
+|**Technologies**          | **Languages / Tools** |  
+
 | `**Technologies**`          | `**Languages / Tools**`                                      |
 |-----------------------------|-------------------------------------------------------------|
 | Primary Framework           | 🐎 [Django](D) (Web framework)                                   |
-| Front-end                   | 🌐📝 HTML, 🎨CSS, ⚡JavaScript                                      |
+| Front-end                   | 🌐📝 [HTML](H), 🎨[CSS](C), ⚡[JavaScript](J)                                      |
 | Language Environment        | 🐍 [Python](P)                                                   |
 | Database Interface          | 🐘 [PostgreSQL](P)                                             |
 | Web Server                  | 🚀 [Gunicorn](G) (WSGI HTTP server for production)              |
