@@ -182,6 +182,14 @@ This diagram shows how a typical user moves through the website from entry → a
 | Comment create | User adds comment | Comment appears in thread | `[PASS]` |
 | Responsive layout | Open app on mobile/tablet/desktop | Layout adapts without major issues | `[PASS` |
 
+HTML VALIDATION TEST 
+<img width="3672" height="1332" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
+CSS VALIDATION TEST 
+
+JAVASCRIPT VALIDATION TEST 
+
+
+
 ##
 ## 6. Deployment 
 ---
