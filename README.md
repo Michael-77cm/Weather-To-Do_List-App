@@ -111,7 +111,7 @@ This diagram shows how a typical user moves through the website from entry → a
   • Log In  
   • Create Account (Sign Up)  
 
-  ↓
+   ↓
 
 **2. Authentication**
     ├── **Log In**
@@ -123,7 +123,7 @@ This diagram shows how a typical user moves through the website from entry → a
             • Create new account  
             • On success → Log In → Dashboard
 
-    ↓
+    ↓ 
 
 **3. Dashboard**
 - Displays:
