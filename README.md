@@ -77,7 +77,7 @@ As a user of the site I should be able to:
 
 :point_right: Link to Kanban board of Userstories: :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
 
-Additional Features: 
+#Additional Features: 
 Website Notifications: 
 Once a task is successful created, this notification pops up at this top of the screen: 
 <img width="2886" height="153" alt="image" src="https://github.com/user-attachments/assets/a085a778-4260-4ef5-bb49-6aae96917d1b" />
@@ -178,6 +178,20 @@ Open your browser and go to:
 http://127.0.0.1:8000/
 ```
 Your app is now running locally!
+
+DEPLOYING TO HEROKU 
+```
+Open Settings.py and set DEBUG back to False
+Git add, commit and push your updated code to Github 
+Return to Heroku dashboard and click on Deploy tab and deploy from main branch
+```
+Once deployed,
+```
+from settings tab click on Reveal Config Vars
+Add Database_url and the value of the PostgreSQL from CI url
+```
+Now your deployed app is connected to your PostgreSQL cloud database. 
+
 
 ##
 ## 📖 Credits 📖
