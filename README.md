@@ -109,9 +109,9 @@ This diagram shows how a typical user moves through the website from entry → a
   “One place for weather, calendar planning, and shared tasks.”
 - Options:
   • Log In  
-  • Create Account (Sign Up)
+  • Create Account (Sign Up)  
 
-       ↓
+    ↓ 
 
 **2. Authentication**
     ├── **Log In**
