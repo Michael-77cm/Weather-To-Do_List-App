@@ -94,7 +94,7 @@ Additional Features:
   
 Future Enhancements: 
 - Being able to create a Large number of tasks in a day
-- Having the tasks to do in a day to be in a clickable format where you can click to the next task as an added functionality and in order to be space efficient. 
+- Being able to click to the next task as an added functionality and in order to be space efficient. 
 
 ##
 ## 4. 🎨 Design / User Experience 🎨  
