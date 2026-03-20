@@ -77,6 +77,8 @@ Once a task is successfully edited, this notification pops up at the top of the 
 <img width="2838" height="141" alt="image" src="https://github.com/user-attachments/assets/be4eb028-4a17-4c2d-a90e-0666a2756e19" />
 Once you try to delete a task, this notification pops up at the top of the screen: 
 <img width="500" height="255" alt="image" src="https://github.com/user-attachments/assets/5433df75-6972-4849-a7f4-580147a1dacf" />
+
+
 Once a task is completely deleted, this notification pops up at the top of the screen: 
 <img width="2832" height="141" alt="image" src="https://github.com/user-attachments/assets/70667d53-d0f5-4f5f-83d0-6ed344c3d679" />
 Future Enhancements: 
@@ -98,7 +100,7 @@ I have made some changes to the model as it developed, such as removing the crea
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
 
 ## 🌦️ User Flow Diagram — Weather To‑Do List App
-
+This diagram shows how a typical user moves through the website from entry → authentication → dashboard → tasks & weather features.
 **1. Landing Page (Home)**
     ↓
 - User sees marketing message:
@@ -126,7 +128,8 @@ I have made some changes to the model as it developed, such as removing the crea
   • Weather information (via Open‑Meteo API)  
   • Calendar planning tools  
   • Shared task lists  
-  • Email notifications for collaborators
+  • Email notifications for task reminders 
+  • Email notifications for group tasks if there are collaborators
 
     ↓
 
@@ -140,7 +143,8 @@ I have made some changes to the model as it developed, such as removing the crea
     │       • Edit tasks  
     │       • Delete tasks  
     │       • Mark tasks complete  
-    │       • Shared tasks sync with collaborators  
+    │       • View previous completed tasks   
+    │       • Shared group tasks sync with collaborators  
     │
     ├── **Use Calendar**
     │       • View daily/weekly/monthly plans  
@@ -148,7 +152,8 @@ I have made some changes to the model as it developed, such as removing the crea
     │       • Organize personal + work items  
     │
     └── **Receive Notifications**
-            • Email alerts for shared task updates
+            • Email alerts for task reminders 
+            • Email shared task updates
 
     ↓
 
