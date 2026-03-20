@@ -211,34 +211,13 @@ Key Coverage:
 `External API integration`
 `Database persistence`
 
-
-Category	Test Class	Tests	Focus Areas
-Forms	TaskFormValidationTests	4	Title requirements, whitespace, recurrence logic
-Models	TaskModelTests	3	Creation, is_done and is_recurring properties
-Identity	SignUpTests	3	Email validation, duplicates, DB persistence
-Security	AuthenticationTests	3	Login redirects, dashboard access, logout
-Data	TaskCRUDTests	4	Create, Update, Delete, Toggle status
-AuthZ	PermissionTests	3	Cross-user access denial, ownership
-API	CitySearchAPITests	2	Query length, result formatting
-API	WeatherAPITests	2	Parameters, response structure
-Total	8 Categories	24	
-
-
-
-
-
-Test Classes (24 tests across 8 categories):
-
-TaskFormValidationTests (4 tests): Title required field, whitespace handling, recurrence dates
-TaskModelTests (3 tests): Task creation, is_done property, is_recurring property
-SignUpTests (3 tests): Email requirement, duplicate email prevention, database persistence
-AuthenticationTests (3 tests): Login redirect, dashboard access control, logout enforcement
-TaskCRUDTests (4 tests): Create valid task, update, delete, toggle status
-PermissionTests (3 tests): Cross-user access denial, owner permissions
-CitySearchAPITests (2 tests): Query length validation, result format
-WeatherAPITests (2 tests): Required parameters, response structure
-
-
+- Key Coverage: 
+  - `Form validation & error handling`
+  - `Model CRUD operations`
+  - `User authentication & session management`
+  - `Task-level permission enforcement`
+  - `External API integration`
+  - `Database persistence`
 
 
 ##
