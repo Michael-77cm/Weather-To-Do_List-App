@@ -1,6 +1,7 @@
 ***
 # <div align="center"> :sparkles: Welcome to Weather To-Do List :sparkles: </div>
 <div align="center">Code Institute Individual Capstone Project / Final Individual Fullstack Project</div> 
+
 ***
 <div align="center"> :point_right: View the live project here:</div>
 <div align="center"> :point_right: https://weather-to-do-list-e7b16ee62076.herokuapp.com/ :point_left:</div>
