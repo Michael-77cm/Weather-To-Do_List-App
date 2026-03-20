@@ -1,6 +1,7 @@
 ***
 # :sparkles: Welcome to Weather To-Do List :sparkles:
 ***
+Code Institute Individual Capstone Project / Final Individual Fullstack Project 
 :point_right: View the live project here: 
 :point_right: https://weather-to-do-list-e7b16ee62076.herokuapp.com/ :point_left:
 ***
