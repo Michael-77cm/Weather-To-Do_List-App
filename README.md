@@ -101,6 +101,8 @@ I have made some changes to the model as it developed, such as removing the crea
 
 ## 🌦️ User Flow Diagram — Weather To‑Do List App
 This diagram shows how a typical user moves through the website from entry → authentication → dashboard → tasks & weather features.
+
+
 **1. Landing Page (Home)**
     ↓
 - User sees marketing message:
