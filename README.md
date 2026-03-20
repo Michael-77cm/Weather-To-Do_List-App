@@ -52,17 +52,16 @@ WeatherToDoList is a Django web app that should include:
 ## 👨‍💻 3. Features / User Stories 👨‍💻
 ---
 As a user of the site I should be able to: 
-
-:white_check_mark:Sign up, log in, and log out with Django authentication
-:white_check_mark:Create, read, update, delete, and share tasks
-:white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
-:white_check_mark:Mark tasks as `in progress` or `done`
-:white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
-:white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
-:white_check_mark:Upload and remove file attachments per task
-:white_check_mark:Search for cities globally with autocomplete
-:white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
-:white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
+-:white_check_mark:Sign up, log in, and log out with Django authentication
+	-:white_check_mark:Create, read, update, delete, and share tasks
+	-:white_check_mark:Organize tasks by `work`, `personal`, `shopping`, `business`, and `wish list`
+	-:white_check_mark:Mark tasks as `in progress` or `done`
+	-:white_check_mark:Configure recurring tasks (daily/weekly/monthly/yearly)
+	-:white_check_mark:Browse tasks on a monthly calendar and inspect a selected day
+	-:white_check_mark:Upload and remove file attachments per task
+	-:white_check_mark:Search for cities globally with autocomplete
+	-:white_check_mark:Display animated weather scenes for clear, cloudy, rain, snow, storm, and mist conditions
+	-:white_check_mark:Send share invite emails with accept/decline workflow and scheduled task reminder emails
 
 As an admin I should be able to: 
 - :white_check_mark:Save user emails in the database through Django's user model
