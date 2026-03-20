@@ -200,6 +200,10 @@ This diagram shows how a typical user moves through the website from entry → a
 | Display Weather condition | User clicks on search button after typing a city | The weather in that city appears | ✅`Pass` |
 | Change of Weather Vibes | User clicks on realistic, playful or dramatic vibe | Weather conditions changes to realistic, playful or dramatic vibe | ✅`Pass` |
 
+Lighthouse Test 
+<img width="1881" height="498" alt="image" src="https://github.com/user-attachments/assets/d1368099-cacd-4e9b-9f59-177bb51b869e" />
+
+
 HTML VALIDATION TEST 
 <img width="3672" height="1332" alt="image" src="https://github.com/user-attachments/assets/3b763d9c-f21a-4d09-a586-8421ebf03021" />
 CSS VALIDATION TEST 
