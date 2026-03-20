@@ -67,7 +67,7 @@ As a user of the site I should be able to:
 As an admin I should be able to: 
 - :white_check_mark:Save user emails in the database through Django's user model
 
-:point_right: Link to Kanban board of Userstories: :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
+:point_right: Link to Kanban board of ` User Stories` : :point_right: https://github.com/users/Michael-77cm/projects/5 :point_left:
 
 # Additional Features / Future enhancemenets: 
 Website Notifications: 
