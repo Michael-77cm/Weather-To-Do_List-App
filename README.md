@@ -46,16 +46,16 @@ WeatherToDoList is a Django web app that combines:
 
 | `**Technologies**`          | `**Languages / Tools**`                                      |
 |-----------------------------|-------------------------------------------------------------|
-| Primary Framework           | 🐎 Django (Web framework)                                   |
+| Primary Framework           | 🐎 [Django](D) (Web framework)                                   |
 | Front-end                   | 🌐📝 HTML, 🎨CSS, ⚡JavaScript                                      |
-| Language Environment        | 🐍 Python                                                   |
-| Database Interface          | 🐘 PostgreSQL                                               |
-| Web Server                  | 🚀 Gunicorn (WSGI HTTP server for production)              |
-| Static Files                | ❄️ WhiteNoise (serves static files in Django)              |
-| Database Configuration      | 🔗 dj-database-url (env‑based DB configuration)            |
-| HTTP Client                 | 📡 Requests (API calls)                                    |
-| Interface Specs             | ⚙️ asgiref (async Python web services standard)            |
-| External APIs               | 🌤️ Open‑Meteo geocoding and forecast APIs                     |
+| Language Environment        | 🐍 [Python](P)                                                   |
+| Database Interface          | 🐘 [PostgreSQL](P)                                             |
+| Web Server                  | 🚀 [Gunicorn](G) (WSGI HTTP server for production)              |
+| Static Files                | ❄️ [WhiteNoise](w)  (serves static files in Django)              |
+| Database Configuration      | 🔗 [dj-database-url](dj) (env‑based DB configuration)            |
+| HTTP Client                 | 📡 [Requests](R) (API calls)                                    |
+| Interface Specs             | ⚙️ [asgiref](a) (async Python web services standard)            |
+| External APIs               | 🌤️ [Open-Meteo geocoding and forecast APIs](O)                     |
 
 
 ##
