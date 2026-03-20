@@ -87,19 +87,75 @@ Future Enhancements:
 - Having the tasks to do in a day to be in a clickable format where you can click to the next task in order to being space efficient and having a nice simple functionality. 
 
 ##
-## User Experience 
----
-- :white_check_mark: User Stories :white_check_mark:
-
-##
-## 4. Design 
+## 4. Design / User Experience  
 ---
 # :chart_with_upwards_trend: Wireframe Diagram :chart_with_upwards_trend:
 <img width="3342" height="1443" alt="image" src="https://github.com/user-attachments/assets/455b4789-5199-4266-b4ad-97447e9a4fbe" />
 
 
 # :newspaper: Entity Relationship Diagram (ERD) :newspaper:
+I have made some changes to the model as it developed, such as removing the created at and updated on timestamps. This is because I didn't believe they were necessary or added to the UX.
 <img width="2688" height="1398" alt="image" src="https://github.com/user-attachments/assets/70519142-8b3b-4da5-a9ea-9ebb917932c8" />
+
+## 🌦️ User Flow Diagram — Weather To‑Do List App
+
+**1. Landing Page (Home)**
+    ↓
+- User sees marketing message:
+  “One place for weather, calendar planning, and shared tasks.”
+- Options:
+  • Log In  
+  • Create Account (Sign Up)
+
+    ↓
+
+**2. Authentication**
+    ├── **Log In**
+    │       • Enter username + password  
+    │       • Option: Forgot password → Password Reset Page  
+    │       • On success → Dashboard  
+    │
+    └── **Sign Up**
+            • Create new account  
+            • On success → Log In → Dashboard
+
+    ↓
+
+**3. Dashboard**
+- Displays:
+  • Weather information (via Open‑Meteo API)  
+  • Calendar planning tools  
+  • Shared task lists  
+  • Email notifications for collaborators
+
+    ↓
+
+**4. Core User Actions**
+    ├── **View Weather**
+    │       • Location-based forecast  
+    │       • Geocoding + forecast API calls  
+    │
+    ├── **Manage Tasks**
+    │       • Add tasks  
+    │       • Edit tasks  
+    │       • Delete tasks  
+    │       • Mark tasks complete  
+    │       • Shared tasks sync with collaborators  
+    │
+    ├── **Use Calendar**
+    │       • View daily/weekly/monthly plans  
+    │       • Add events  
+    │       • Organize personal + work items  
+    │
+    └── **Receive Notifications**
+            • Email alerts for shared task updates
+
+    ↓
+
+**5. Account Management**
+- Change password  
+- Log out  
+- Return to dashboard anytime
 
 ##
 ## 5. Testing 
