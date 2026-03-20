@@ -14,12 +14,12 @@ Stay organised with a to‑do list that adapts to the weather. This app combines
 ## :scroll:Table of Contents:scroll:  
 ---
 1. [Project Overview](UX)
-2. [Features](Features)
-3. [Design](Design)
-4. [Technologies Used](T)
+2. [Technologies Used](T)
+3. [Features](Features)
+4. [Design](Design)
 5. [Testing](T)
-6. [Deployment](D)
-7. [Credits](C)
+7. [Deployment](D)
+8. [Credits](C)
 #
 # :snowflake: 1. WeatherToDoList :snowflake:
 ---
